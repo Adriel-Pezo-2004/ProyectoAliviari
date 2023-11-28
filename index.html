@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aliviari</title>
+  <link rel="stylesheet" href="css/estilos_login.css">
+</head>
+
+<body class="bg-info d-flex justify-content-center align-items-center vh-100">
+  <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+    <div class="d-flex justify-content-center">
+      <img src="img/login-icon.png" alt="login-icon" style="height: 7rem" />
+    </div>
+    <div class="text-center fs-1 fw-bold">Iniciar Sesión
+    </div>
+
+    <form action="bd/validate.php" method="POST">
+      <div class="input-group mt-4">
+        <div class="input-group-text bg-info">
+          <img src="img/username-icon.png" alt="username-icon" style="height: 1rem" />
+        </div>
+        <input class="form-control bg-light" type="text" required name="username" placeholder="Nombre de usuario" />
+      </div>
+      <div class="input-group mt-1">
+        <div class="input-group-text bg-info">
+          <img src="img/password-icon.png" alt="password-icon" style="height: 1rem" />
+        </div>
+        <input class="form-control bg-light" type="password" required name="password" placeholder="Contraseña" />
+      </div>
+      <div class="d-flex justify-content-around mt-1">
+      </div>
+      <button class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" type="submit" name="submit">Iniciar
+        Sesión</button>
+    </form>
+  </div>
+</body>
+
+</html>
