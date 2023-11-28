@@ -35,6 +35,7 @@ include("../BD/session.php");
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
+        <hr class="sidebar-divider">
       <li class="nav-item active">
         <a class="nav-link" href="pacientes.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -53,6 +54,14 @@ include("../BD/session.php");
         <a class="nav-link" href="sangre.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Registro de Laboratorio de Sangre</span></a>
+      </li>
+            <!-- Divider -->
+      <!-- Divider -->
+            <hr class="sidebar-divider">
+      <li class="nav-item active">
+        <a class="nav-link" href="sabana.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Sabana de Datos</span></a>
       </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

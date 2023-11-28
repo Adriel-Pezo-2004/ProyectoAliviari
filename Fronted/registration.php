@@ -39,9 +39,10 @@ if (isset($_GET['update'])) {
         '$apoderado'
         )");
         $query->execute();
+        $exists = mysqli_trigger_exists($GLOBALS['aliviari2'], 'tr_InsertPacientes');       
     }
     catch(PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo "<h5>Mensaje: " . $e->getMessage() . "</h5>";
     }
 }
 
@@ -59,7 +60,6 @@ function filterRecord($query)
         <h1>Registrar un nuevo Paciente</h1>
     </Center>
     <div class="container">
-        <br>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -123,7 +123,7 @@ function filterRecord($query)
                                             </div>
                                             <div class="form-group">
                                                 <label for="apoderado" class="col-form-label">Apoderado :</label>
-                                                <input type="text" class="form-control" placeholder="" name="apoderado" required>
+                                                <input type="text" class="form-control" placeholder="" name="apoderado">
                                             </div>
                                         </div>
                                         <div class="modal-footer">

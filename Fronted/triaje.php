@@ -31,6 +31,39 @@ if (isset($_GET['execute'])) {
     $conn = null;
 }
 
+if (isset($_GET['consulta3'])) {
+    try{
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_covid()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+if (isset($_GET['consulta4'])) {
+    try{
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_sobre()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+if (isset($_GET['consulta5'])) {
+    try{
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_ICC()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
 ?>
 <!--INICIO del cont principal-->
 <div class="container">
@@ -54,7 +87,10 @@ if (isset($_GET['execute'])) {
     font-size: 17px;
     border-radius: 3px;
 ">
-                    <input type="submit" name="execute" value="Buscar">
+                    <input type="submit" class="btn btn-success" name="execute" value="Buscar">
+                    <input type="submit" class="btn btn-success" name="consulta3" value="Buscar posibles casos COVID">
+                    <input type="submit" class="btn btn-success" name="consulta4" value="Buscar casos sobrepeso">
+                    <input type="submit" class="btn btn-success" name="consulta5" value="Casos de Riesgo por ICC">
                     </form>
             </div>
             </div>

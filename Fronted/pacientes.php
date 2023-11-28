@@ -23,7 +23,7 @@ if (isset($_GET['execute'])) {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = $conn->prepare("CALL sp_mostrar_pacientes()");
-        $query->execute();
+        $query->execute(); 
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
@@ -31,7 +31,41 @@ if (isset($_GET['execute'])) {
     $conn = null;
 }
 
+if (isset($_GET['consulta1'])) {
+    try{
+        $dni = $_GET['dni'];
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_donadores()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
 
+if (isset($_GET['consulta2'])) {
+    try{
+        $dni = $_GET['dni'];
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_jovenes()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+if (isset($_GET['consulta3'])) {
+    try{
+        $dni = $_GET['dni'];
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_universitario()"); 
+        $query->execute(); 
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
 
 ?>
 <!--INICIO del cont principal-->
@@ -57,8 +91,10 @@ if (isset($_GET['execute'])) {
     font-size: 17px;
     border-radius: 3px;
     ">  
-        <input type="submit" name="execute" value="Buscar">
-
+        <input type="submit" class="btn btn-success" name="execute" value="Buscar">
+        <input type="submit" class="btn btn-success" name="consulta1" value="Buscar donadores universales">
+        <input type="submit" class="btn btn-success" name="consulta2" value="Pacientes Jovenes">
+        <input type="submit" class="btn btn-success" name="consulta3" value="Pacientes Universitarios">
                    
     </from>
             </div>

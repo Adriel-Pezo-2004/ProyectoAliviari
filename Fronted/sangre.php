@@ -31,6 +31,39 @@ if (isset($_GET['execute'])) {
     $conn = null;
 }
 
+if (isset($_GET['consulta5'])) {
+    try{
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_colesterol()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+if (isset($_GET['consulta6'])) {
+    try{
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_hemoglobina2()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+if (isset($_GET['consulta7'])) {
+    try{
+        $conn3 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = $conn3->prepare("CALL con_hemoglobina()"); 
+        $query->execute();
+    } catch(PDOException $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
 function filterRecord($query)
 {
     include("../BD/config.php");
@@ -61,7 +94,10 @@ function filterRecord($query)
     font-size: 17px;
     border-radius: 3px;
 ">
-                    <input type="submit" name="execute" value="Buscar">
+                    <input type="submit" class="btn btn-success" name="execute" value="Buscar">
+                    <input type="submit" class="btn btn-success" name="consulta5" value="Buscar casos pre-diabeticos">
+                    <input type="submit" class="btn btn-success" name="consulta6" value="Buscar casos de anemia">
+                    <input type="submit" class="btn btn-success" name="consulta7" value="Casos de riesgo">
                     </form>
             </div>
             </div>
